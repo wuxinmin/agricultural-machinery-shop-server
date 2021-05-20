@@ -4,6 +4,13 @@ const mongoose = require('mongoose');
 // 此处本地的数据库默认的27017可以不写后面是数据库名称
 const db = 'mongodb://localhost:27017/shop'; 
 
+// 引入所有的schema
+const glob = require("glob");
+const path = require("path"); // path属于自带的
+exports.initSchemas = ()=>{
+    // 把model中的所有的js文件都请求进来
+    glob.sync(path.resolve(__dirname, './model', '*.js')).forEach(require)
+}
 
 exports.connect = ()=>{
     // 连接数据库 第二个参数就是配置参数意思是取解析url
