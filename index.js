@@ -19,8 +19,12 @@ app.use(bodyParser());
 const Router = require('koa-router');
 // 引入控制器文件
 let user = require('./controller/user');
+let product = require('./controller/product');
+let type = require('./controller/type');
 let router = new Router();
 router.use('/user', user.routes());
+router.use('/product', product.routes());
+router.use('/type', type.routes())
 app.use(router.routes());
 // 此方法如果配置的是get请求就只能接收get请求post同理
 app.use(router.allowedMethods());
