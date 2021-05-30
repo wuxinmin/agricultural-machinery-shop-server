@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 // 我们要连接的数据库
 // 此处本地的数据库默认的27017可以不写后面是数据库名称
 const db = 'mongodb://localhost:27017/shop'; 
+// const db = 'mongodb://192.168.43.111:27017/shop'; 
 
 // 引入所有的schema
 const glob = require("glob");

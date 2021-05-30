@@ -7,6 +7,7 @@ const cors = require('koa2-cors');
 app.use(cors({
     // 指定某些地址可以访问
     origin: ["http://192.168.43.111:8081"],
+    // origin: ["http://localhost:8081"],
     // 配置证书
     credentials: true
 }));
