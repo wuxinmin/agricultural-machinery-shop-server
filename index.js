@@ -6,7 +6,7 @@ const app = new Koa();
 const cors = require('koa2-cors');
 app.use(cors({
     // 指定某些地址可以访问
-    origin: ["http://localhost:8081"],
+    origin: ["http://192.168.43.111:8081"],
     // 配置证书
     credentials: true
 }));
@@ -21,10 +21,14 @@ const Router = require('koa-router');
 let user = require('./controller/user');
 let product = require('./controller/product');
 let type = require('./controller/type');
+let cart = require('./controller/cart');
+
 let router = new Router();
 router.use('/user', user.routes());
 router.use('/product', product.routes());
 router.use('/type', type.routes())
+router.use('/cart', cart.routes())
+
 app.use(router.routes());
 // 此方法如果配置的是get请求就只能接收get请求post同理
 app.use(router.allowedMethods());
